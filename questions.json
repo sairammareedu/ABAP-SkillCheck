@@ -161,12 +161,12 @@
   {
     "question": "When you work with a test class you can set up some prerequisites before the actual testing. In which sequence will the following fixtures be called by the test environment?",
     "options": [
-      "teardown()",
-      "class_setup()",
-      "class_teardown()",
-      "setup()"
+      "teardown()->setup()->class_teardown()->class_setup()",
+      "class_setup()->setup()->teardown()->class_teardown()",
+      "class_teardown()->teardown()->setup()->class_setup()",
+      "setup()->class_setup()->setup()->teardown()"
     ],
-    "answer": [1, 3, 0, 2]
+    "answer": [1]
   },
   {
     "question": "How can you control data access of a business user?\nNote: There are 3 correct answers to this question.",
@@ -279,7 +279,7 @@
       "The documentation has to be positioned directly after the declarative statement.",
       "The documentation can contain links to other repository object's documentation.",
       "The documentation can be translated.",
-      "The documentation may contain tags like <strong></strong>."
+      "The documentation may contain tags like \n <strong></strong>."
     ],
     "answer": [0, 2, 4]
   },
