@@ -514,9 +514,10 @@
   "question": "ABAP core data services (CDS) and data modeling\nQuestion 51\nWhat is the purpose of a foreign key relationship between two tables in the ABAP Dictionary?",
   "options": [
     "To document the relationship between the two tables",
-    "To create a corresponding foreign key relationship in the database"
+    "To create a corresponding foreign key relationship in the database",
+    "To ensure the integrity of data in the corresponding database tables"
   ],
-  "answer": [0]
+  "answer": [2]
 },
 {
   "question": "ABAP core data services (CDS) and data modeling\nQuestion 52\nGive the following Core Data Service view entity data definition:\n\nWhich of the following ABAP SQL snippets are syntactically correct ways to provide a value for the parameter on line #4?\nNote: There are 2 correct answers to this question.",
@@ -754,7 +755,7 @@
     "Database table",
     "Service binding"
   ],
-  "answer": [3]
+  "answer": [3,1,2,0,4]
 },
 {
   "question": "ABAP RESTful Application Programming Model\nQuestion 75\nWhich RESTful Application Programming object can be used to organize the display of fields in an app?",
