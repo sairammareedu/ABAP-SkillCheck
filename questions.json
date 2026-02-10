@@ -1,0 +1,819 @@
+[
+  {
+    "question": "How can you execute test classes?\nNote: There are 3 correct answers to this question.",
+    "options": [
+      "Interactively by calling function \"Run as a unit test\" from within the tested object.",
+      "As a mass test when releasing a transport request with the ABAP Transport Organizer.",
+      "Interactively by calling function \"Run as a unit test\" from within the test class.",
+      "Interactively during the release of transport request.",
+      "As a mass test when executing an ABAP Test Cockpit (ATC) check variant."
+    ],
+    "answer": [0, 2, 4]
+  },
+  {
+    "question": "What is a class defined as part of an ABAP program called?",
+    "options": [
+      "Local class",
+      "Global class",
+      "Local variable",
+      "Global variable"
+    ],
+    "answer": [0]
+  },
+  {
+    "question": "Which function call produces the string 'LORE IPSUM FACTUM'?",
+    "options": [
+      "to_upper( condense( 'Lore IpsumFactum' ) )",
+      "from_mixed( val = 'LoreIpsumFactum' sep= )",
+      "to mixed(val = 'Lore IpsumFactum' sep= )",
+      "condense to_upper('LoreIpsumFactum' ) )"
+    ],
+    "answer": [1]
+  },
+  {
+    "question": "Given this code,\nDATA(structure_variable) REDUCE structure_type (\nINIT\nh_structure_variable TYPE structure_type\nFOR row IN source_itab\nNEXT\nh_structure_variable-f1 += row-f1\nh_structure_variable-f2+= row-f2\nwhich of the following statements are correct?\nNote: There are 2 correct answers to this question.",
+    "options": [
+      "Components of h_structure_variable will be copied to same-named components of structure_variable.",
+      "row is a predefined name and cannot be changed.",
+      "The REDUCE expression creates a loop over source_itab.",
+      "This REDUCE expression may produce a result of multiple rows."
+    ],
+    "answer": [0, 2]
+  },
+  {
+    "question": "Which statement creates a reference variable for class CL_VEHICLE?",
+    "options": [
+      "TYPES lo_vehicle TYPE cl_vehicle.",
+      "DATA lo_vehicle TYPE REF TO cl vehicle.",
+      "DATA lo_vehicle LIKE REF cl_vehicle.",
+      "DATA lo_vehicle TYPE REF OF cl_vehicle."
+    ],
+    "answer": [1]
+  },
+  {
+    "question": "Given the following code,\nDATA gv_text1 TYPE string. \"#EC_NEEDED\nDATA gv_text2 TYPE string ##NEEDED.\nWhat are valid statements?\nNote: There are 2 correct answers to this question.",
+    "options": [
+      "#EC_NEEDED is not checked by the syntax checker.",
+      "##NEEDED is checked by the syntax checker.",
+      "The pseudo-comment is checked by the syntax checker.",
+      "The pragma is not checked by the syntax checker."
+    ],
+    "answer": [0, 1]
+  },
+  {
+    "question": "What are some principles of encapsulation?\nNote: There are 2 correct answers to this question.",
+    "options": [
+      "Attributes can be changed by the client program directly.",
+      "Attributes cannot be changed.",
+      "Attributes can be changed through public class methods.",
+      "Attributes can only be changed by the class."
+    ],
+    "answer": [2, 3]
+  },
+  {
+    "question": "Which statement can you use to change the contents of a row of data in an internal table?",
+    "options": [
+      "INSERT",
+      "MODIFY",
+      "APPEND",
+      "UPDATE"
+    ],
+    "answer": [1]
+  },
+  {
+    "question": "In a booking record, how can you calculate the difference in days between the order date (type D) and the flight date (type D) of a flight?",
+    "options": [
+      "data(gv_diff_days) = conv d( gs_booking-order_dategs_booking-flight_date).",
+      "data(gv_diff_days) = gs_booking-flight_dategs_booking-order_date.",
+      "data(gv_diff_days) conv d( gs_booking-flight_dategs_booking-order_date).",
+      "data(gv_diff_days) = gs_booking-order_date - gs_booking-flight_date."
+    ],
+    "answer": [3]
+  },
+  {
+    "question": "While debugging an ABAP program, you want the program to stop whenever the value of a variable change. Which of the following do you use?",
+    "options": [
+      "Exception",
+      "breakpoint Watchpoint",
+      "Conditional breakpoint"
+    ],
+    "answer": [1]
+  },
+  {
+    "question": "What are some features of the current ABAP programming language?\nNote: There are 2 correct answers to this question.",
+    "options": [
+      "A data object's type can change at runtime.",
+      "Keywords are case-sensitive.",
+      "It has built-in database access.",
+      "The code is expression-based."
+    ],
+    "answer": [2, 3]
+  },
+  {
+    "question": "Which of the following pre-defined ABAP data types is a complete data type?",
+    "options": [
+      "N",
+      "C",
+      "P",
+      "D"
+    ],
+    "answer": [2]
+  },
+  {
+    "question": "Constructors have which of the following properties?\nNote: There are 2 correct answers to this question.",
+    "options": [
+      "The constructor is automatically called during instantiation.",
+      "The constructor can have importing parameters.",
+      "The constructor must be the first method called by the client.",
+      "The constructor can have returning parameters."
+    ],
+    "answer": [0, 1]
+  },
+  {
+    "question": "Which function call returns 0?",
+    "options": [
+      "find(val'FIND Found found' sub 'F' occ = -2 CASE = abap_true )",
+      "find(val 'find FOUND Found' sub 'F' occ = -2 CASE = abap_false )",
+      "find(val 'FIND FOUND FOUND' sub = 'F' )",
+      "find(val 'find Found FOUND' sub 'F' occ-2 -2)"
+    ],
+    "answer": [2]
+  },
+  {
+    "question": "Given the following ABAP code, which exception will be raised on execution?",
+    "options": [
+      "cx_sy_conversion_no_number",
+      "cx_sy_zerodivide",
+      "cx_sy_itab_line_not_found"
+    ],
+    "answer": [0]
+  },
+  {
+    "question": "To give authorization to users, in which order are the artifacts being used?",
+    "options": [
+      "The IAM app uses the Business Catalog → Business Role → Business User → Authorization Object.",
+      "The IAM app uses the Business Role → Authorization Object → Business Catalog → Business User.",
+      "The IAM app uses the Authorization Object → Business Catalog → Business Role → Business User.",
+      "The IAM app uses the Business User → Business Catalog → Business Role → Authorization Object."
+    ],
+    "answer": [3]
+  },
+  {
+    "question": "When you work with a test class you can set up some prerequisites before the actual testing. In which sequence will the following fixtures be called by the test environment?",
+    "options": [
+      "teardown()",
+      "class_setup()",
+      "class_teardown()",
+      "setup()"
+    ],
+    "answer": [1, 3, 0, 2]
+  },
+  {
+    "question": "How can you control data access of a business user?\nNote: There are 3 correct answers to this question.",
+    "options": [
+      "To control the general access implicitly via an Access Control object (define role).",
+      "To control the Read access implicitly via an Access Control object (define role).",
+      "To control the Create, Update, and Delete access implicitly via an Access Control object.",
+      "To control the Create, Update, and Delete access via explicit AUTHORITY-CHECK.",
+      "To control the Read access via explicit AUTHORITY-CHECK."
+    ],
+    "answer": [0, 3, 4]
+  },
+  {
+    "question": "You want to check the behavior of an ordinary class ZCL_ORDINARY with class LTCL_TEST. How do you specify LTCL_TEST as a test class?",
+    "options": [
+      "Use the addition \"FOR TESTING\" in the class declaration of LTCL_TEST.",
+      "Use the addition \"FOR TESTING: LTCL_TEST\" in the class declaration of ZCL_ORDINARY.",
+      "Create a parameter in the SETUP method of LTCL_TEST.",
+      "Create LTCL_TEST in a special package reserved for test classes."
+    ],
+    "answer": [0]
+  },
+  {
+    "question": "Which of the following results in faster access to internal tables?\nNote: There are 3 correct answers to this question.",
+    "options": [
+      "In a sorted internal table, specifying the primary key completely.",
+      "In a standard internal table, specifying the primary key partially from the left without gaps.",
+      "In a sorted internal table, specifying the primary key partially from the left without gaps.",
+      "In a hashed internal table, specifying the primary key partially from the left without gaps.",
+      "In a hashed internal table, specifying the primary key completely."
+    ],
+    "answer": [0, 2, 4]
+  },
+{
+    "question": "What can be translated?\nNote: There are 3 correct answers to this question.",
+    "options": [
+      "Content of a String variable",
+      "Text symbol",
+      "Text literal",
+      "Message class",
+      "Data element texts"
+    ],
+    "answer": [1, 3, 4]
+  },
+  {
+    "question": "Given the following data definitions:\n• DATA: text TYPE string VALUE Date 1972-04-01 is in ISO format`.\n• DATA: regex TYPE string VALUE [0-9]{4} (- [0-9]{2}}{2} `.\nIn which of the following functions can you use regular expressions?\nNote: There are 3 Correct answers to this question.",
+    "options": [
+      "matches(val = text pcre = regex)",
+      "reverse(val = text pcre = regex)",
+      "find(val = text pcre = regex)",
+      "condense(val = text pcre = regex)",
+      "match(val = text pcre = regex )"
+    ],
+    "answer": [0, 2, 4]
+  },
+  {
+    "question": "When defining a METHOD, which parameter type can only have 1 value?",
+    "options": [
+      "CHANGING",
+      "EXPORTING",
+      "IMPORTING",
+      "RETURNING"
+    ],
+    "answer": [3]
+  },
+  {
+    "question": "What is the syntax to access component carrier_name of structure connection?",
+    "options": [
+      "connection/carrier_name",
+      "connection=>carrier_name",
+      "connection->carrier name",
+      "connection-carrier_name"
+    ],
+    "answer": [3]
+  },
+  {
+    "question": "Which internal table type allows unique and non-unique keys?",
+    "options": [
+      "Standard",
+      "Hashed",
+      "Sorted"
+    ],
+    "answer": [2]
+  },
+  {
+    "question": "What describes multi-column internal tables?",
+    "options": [
+      "They use one incomplete data type.",
+      "They use one complete data type.",
+      "They must contain nested components.",
+      "They are based on a structured row type."
+    ],
+    "answer": [3]
+  },
+  {
+    "question": "What are valid statements?\n\nNote: There are 3 correct answers to this question.",
+    "options": [
+      "Instead of go_cl1 = NEW #(...) you could use go_if1 = NEW cl1(...).",
+      "go_if1 may call method m1 with go_if1->m1(...).",
+      "go_cl1 may call method m1 with go_cl1->if1~m1(...).",
+      "Instead of go_cl1 = NEW #(...) you could use go_if1 = NEW #(...).",
+      "go_if1 may call method m2 with go_if->m2(...)."
+    ],
+    "answer": [1, 2, 3]
+  },
+  {
+    "question": "You want to document a global class with ABAP Doc.\nWhat do you need to consider?\nNote: There are 3 correct answers to this question.",
+    "options": [
+      "The documentation starts with \"!\"",
+      "The documentation has to be positioned directly after the declarative statement.",
+      "The documentation can contain links to other repository object's documentation.",
+      "The documentation can be translated.",
+      "The documentation may contain tags like <strong></strong>."
+    ],
+    "answer": [0, 2, 4]
+  },
+  {
+    "question": "What are some necessary parts of the singleton pattern?\nNote: There are 3 correct answers to this question.",
+    "options": [
+      "Constructor visibility is set to private.",
+      "Class creation is set to \"create private\".",
+      "Class method to create the singleton instance is set to private.",
+      "Static attribute to store address of the singleton instance must exist.",
+      "Class method to create the singleton instance must exist."
+    ],
+    "answer": [1, 3, 4]
+  },
+  {
+    "question": "In a subclass sub1 you want to redefine a component of a superclass super1.\nHow do you achieve this?\nNote: There are 2 correct answers to this question.",
+    "options": [
+      "You add the clause REDEFINITION to the component in sub1.",
+      "You implement the redefined component for a second time in super1.",
+      "You add the clause REDEFINITION to the component in super1.",
+      "You implement the redefined component in sub1."
+    ],
+    "answer": [0, 3]
+  },
+  {
+    "question": "When you create an exception class, what does SAP recommend you do?\nNote: There are 3 correct answers to this question.",
+    "options": [
+      "Inherit from cx_static_check, if you want a warning at design time that the exception can never be raised.",
+      "Define corresponding public attributes, if you want to pass context-specific values to placeholders of a message.",
+      "Implement interface if_t100_message, if you want to reuse messages from a message class.",
+      "Inherit from cx_no_check, if you want to reuse messages from a system exception class.",
+      "Inherit from cx_static_check, if you want a warning at design time that the exception will not be caught."
+    ],
+    "answer": [1, 2, 4]
+  },
+  {
+    "question": "Which statements apply to the TRY-ENDTRY construct?\nNote: There are 3 correct answers to this question.",
+    "options": [
+      "CATCH clauses should be organized ascending from most specific to most general.",
+      "A CLEANUP clause catches remaining exceptions.",
+      "A superclass in a CATCH clause catches exceptions of itself and of its subclasses.",
+      "A CATCH clause can be used as a handler for several exception classes.",
+      "All matching CATCH clauses are always executed."
+    ],
+    "answer": [0, 2, 3]
+  },
+  {
+    "question": "You have a superclass super1 and a subclass sub1 of super1. Each class has an instance constructor and a static constructor. The first statement of your program creates an instance of sub1.\nIn which sequence will the constructors be executed?",
+    "options": [
+      "Class constructor of super1",
+      "Instance constructor of sub1",
+      "Instance constructor of super1",
+      "Class constructor of sub1"
+    ],
+    "answer": [0, 3, 2, 1]
+  },
+  {
+    "question": "How do you make class sub1 a subclass of class super1?",
+    "options": [
+      "In sub1 use clause \"INHERITING FROM super1\" in the DEFINITION part.",
+      "In super1 use clause \"sub1 REDEFINITION\" in the DEFINITION part.",
+      "In sub1 use clause \"INHERITING FROM super1\" in the IMPLEMENTATION part.",
+      "In super1 use clause \"sub1 REDEFINITION\" in the IMPLEMENTATION part."
+    ],
+    "answer": [0]
+  },
+  {
+    "question": "Given the following ABAP SQL statement excerpt from an ABAP program:\nSELECT SINGLE\nFROM spfli\nWHERE carrid = 'LH' AND connid = '0400'\nINTO @DATA(wa).\nBased on the given information, which of the following general settings should you set for the spfli database table?\nNote: There are 2 correct answers to this question.",
+    "options": [
+      "Load Unit to Column Loadable",
+      "Storage Type to Column Store",
+      "Storage Type to Row Store",
+      "Load Unit to Page Loadable"
+    ],
+    "answer": [1, 3]
+  },
+  {
+    "question": "You have two database tables - ZDEPARTMENTS and ZEMPLOYEES.\nThey are linked by a foreign key relationship.\nWhat is the correct cardinality of the foreign key relationship?",
+    "options": [
+      "[0..1,1]",
+      "[0..*,1]",
+      "[1,1]",
+      "[1,1]"
+    ],
+    "answer": [1]
+  },
+  {
+    "question": "Which of the following are features of Core Data Services?\nNote: There are 3 correct answers to this question.",
+    "options": [
+      "Structured Query Language (SQL)",
+      "Inheritance",
+      "Associations",
+      "Delegation",
+      "Annotations"
+    ],
+    "answer": [0, 2, 4]
+  },
+  {
+    "question": "You have the following CDS definition:\ndefine view entity Z_ENTITY as select from Z_SOURCE1 as _Source1 association to Z_SOURCE2 as _Source2\nWhich ON condition must you insert?",
+    "options": [
+      "ON $projection.Carrier = _Source2.carrier",
+      "ON Z_Source1.carrier_id = Z_Source2.carrier_id",
+      "ON $projection.Carrier = _Source2.carrier_id",
+      "ON $projection.carrier_id = Z_Source2.carrier_id"
+    ],
+    "answer": [3]
+  },
+  {
+    "question": "You are a consultant and the client wants you to extend an SAP HANA database table in SAP S/4HANA Cloud.\nWhich is the correct response?",
+    "options": [
+      "The database table can be extended whether extensibility enabled or not if it is assigned to Standard ABAP.",
+      "The database table can be extended once it has been extensibility enabled by the customer.",
+      "The database table can be extended whether extensibility enabled or not if it is assigned to ABAP Cloud.",
+      "The database table cannot be extended since it has not been extensibility enabled by SAP."
+    ],
+    "answer": [2]
+  },
+  {
+    "question": "You select a field flight_date with type DATS in the field list of a CDS view.\nWhich expressions return the 2-digit month?\nNote: There are 2 correct answers to this question.",
+    "options": [
+      "left(right( flight_date, 6), 2)",
+      "substring( flight_date, 5, 2)",
+      "right(left( flight_date, 6), 2)",
+      "substring( flight_date, 4, 2)"
+    ],
+    "answer": [1, 2]
+  }
+
+  ,
+{
+  "question": "ABAP core data services (CDS) and data modeling\nQuestion 41\nWhich of the following is a technique for defining access controls?",
+  "options": [
+    "Casting",
+    "Redefiniton",
+    "Singleton",
+    "Inheritance"
+  ],
+  "answer": [3]
+},
+{
+  "question": "ABAP core data services (CDS) and data modeling\nQuestion 42\nGiven the following code excerpt that defines an SAP HANA database table:\n\nWhich field is defined incorrectly?",
+  "options": [
+    "field2",
+    "field4",
+    "field3",
+    "field1"
+  ],
+  "answer": [3]
+},
+{
+  "question": "ABAP core data services (CDS) and data modeling\nQuestion 43\nGiven the following Core Data Services View Entity Data\n1. Definition, DEFINE VIEW ENTITY demo_cds_view_entity\n2. AS SELECT FROM spfli\n3. {\n4. cityfrom,\n5. cityto,\n6. carrid,\n7. connid\n8. }\nwhen you attempt to activate the definition, what will be the response?",
+  "options": [
+    "Activation error due to missing annotation \"@AbapCatalog.sqlViewName\"",
+    "Activation error due to missing annotation \"@AccessControl.authorizationCheck\"",
+    "Activation will be successful",
+    "Activation error due to no key defined"
+  ],
+  "answer": [2]
+},
+{
+  "question": "ABAP core data services (CDS) and data modeling\nQuestion 44\nWhich of the following actions cause an indirect change to a database table requiring a table conversion?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "Changing the field labels of a data element that is used in the table definition.",
+    "Shortening the length of a domain used in a data element that is used in the table definition.",
+    "Deleting a field from a structure that is included in the table definition.",
+    "Renaming a field in a structure that is included in the table definition."
+  ],
+  "answer": [1, 2]
+},
+{
+  "question": "ABAP core data services (CDS) and data modeling\nQuestion 45\nIn CDS views, what do joins and associations have in common?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "The data sources are linked using an ON clause.",
+    "The field list can include fields of the linked table without specifying the name of the corresponding data source.",
+    "They can expose an entire data source without listing individual fields.",
+    "An alias can be assigned to the data sources and to the fields in the field list."
+  ],
+  "answer": [0, 3]
+},
+{
+  "question": "ABAP core data services (CDS) and data modeling\nQuestion 46\nYou want to define the following CDS view entity with an input parameter:\n• define view entity Z_CONVERT\n• with parameters i_currency : ???\nWhich of the following can you use to replace \"???\"?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "A built-in ABAP type",
+    "A built-in ABAP Dictionary type",
+    "A data element",
+    "A component of an ABAP Dictionary structure"
+  ],
+  "answer": [1, 2]
+},
+{
+  "question": "ABAP core data services (CDS) and data modeling\nQuestion 47\nWhich of the following Core Data Services built-in functions returns a result of type INT4?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "dats_days_between",
+    "dats_is_valid",
+    "dats_add_months",
+    "dats_add_days"
+  ],
+  "answer": [0, 1]
+},
+{
+  "question": "ABAP core data services (CDS) and data modeling\nQuestion 48\nWhich of the following types of Core Data Services Views can be used at the consumption layer?\nNote: There are 3 correct answers to this question.",
+  "options": [
+    "Table Function",
+    "Analytical Query",
+    "Transactional Interface",
+    "Transactional Query",
+    "Hierarchy"
+  ],
+  "answer": [1, 3, 4]
+},
+{
+  "question": "ABAP core data services (CDS) and data modeling\nQuestion 49\nIn class ZCL_CLASS_A, you use the statement DATA var TYPE ***\nWhat may stand in place of ***?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "The name of a domain from the ABAP Dictionary",
+    "The name of a type defined privately in class ZCL_CLASS_A",
+    "The name of a data element from the ABAP Dictionary",
+    "The name of a type defined privately in another class"
+  ],
+  "answer": [1, 2]
+},
+{
+  "question": "ABAP core data services (CDS) and data modeling\nQuestion 50\nGiven the following Core Data Service View Entity Data Definition,\n\nwhen you attempt to activate the definition, what will be the response?",
+  "options": [
+    "Activation error because the key fields of the union do not match",
+    "Activation error because the field types of the union do not match",
+    "Activation successful",
+    "Activation error because the field names of the union do not match"
+  ],
+  "answer": [0]
+},
+{
+  "question": "ABAP core data services (CDS) and data modeling\nQuestion 51\nWhat is the purpose of a foreign key relationship between two tables in the ABAP Dictionary?",
+  "options": [
+    "To document the relationship between the two tables",
+    "To create a corresponding foreign key relationship in the database"
+  ],
+  "answer": [0]
+},
+{
+  "question": "ABAP core data services (CDS) and data modeling\nQuestion 52\nGive the following Core Data Service view entity data definition:\n\nWhich of the following ABAP SQL snippets are syntactically correct ways to provide a value for the parameter on line #4?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "...SELECT * FROM demo_cds_param_view_entity( p_date = '20230101’ ) ....",
+    "SELECT FROM demo_cds_param_view_entity( p_date: 20230101’ ) ...",
+    "...SELECT FROM demo_cds_param_view_entity( p_date = @( l_abap_context_info=>get_system_date() ) ) ...",
+    "SELECT FROM demo_cds_param_view_entity( p_date: $session.system_date ) ...."
+  ],
+  "answer": [0, 2]
+},
+{
+  "question": "ABAP core data services (CDS) and data modeling\nQuestion 53\nYou have attached a system field to an input parameter of a CDS view entity as follows:\n• define view entity Z_ENTITY with parameters\n• @Environment.SystemField: #SYSTEM_LANGUAGE\n• language :spras...\nWhat are the effects of this annotation?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "It is no longer possible to pass your own value to the parameter.",
+    "The value of sy-langu will be passed to the CDS view automatically both when you use the CDS view in ABAP and in another CDS view entity (view on view).",
+    "The value of sy-langu will be passed to the CDS view automatically when you use the CDS view in ABAP but not when you use it in another view entity.",
+    "You can still override the default value with a value of your own."
+  ],
+  "answer": [0, 1]
+},
+{
+  "question": "ABAP core data services (CDS) and data modeling\nQuestion 54\nWhich of the following are reasons that SAP recommends developing Core Data Services view entities as opposed to classic Core Data Services DDIC-based views?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "Simpler and stricter syntax",
+    "Simplified syntax check",
+    "Automated client handling",
+    "Elimination of the need for a database view"
+  ],
+  "answer": [2, 3]
+},
+{
+  "question": "SAP clean core extensibility and ABAP cloud\nQuestion 55\nTo which of the following rules must extensions in SAP S/4HANA, public cloud edition adhere?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "Use CI/CD pipelines",
+    "Use predefined extension points",
+    "Use released APIs",
+    "Build at the UX layer"
+  ],
+  "answer": [1, 2]
+},
+{
+  "question": "SAP clean core extensibility and ABAP cloud\nQuestion 56\nWhich of the following integration frameworks have been released for ABAP cloud development?\nNote: There are 3 correct answers to this question.",
+  "options": [
+    "CDS Views",
+    "Business Add-ins (BAdIs)",
+    "SOAP consumption",
+    "Business events",
+    "OData services"
+  ],
+  "answer": [2, 3, 4]
+},
+{
+  "question": "SAP clean core extensibility and ABAP cloud\nQuestion 57\nWhich of the following are reasons to use the side-by-side extensibility pattern?\nNote: There are 3 correct answers to this question.",
+  "options": [
+    "An extension enhances an existing SAP Fiori UI",
+    "An extension is managed independently from SAP S/4HANA",
+    "An extension uses its own data model with occasional consumption of data in SAP S/4HANA",
+    "An extension implements reactive (event based) process extensions",
+    "An extension runs in the same logical unit of work (LUW) as an SAP S/4HANA application"
+  ],
+  "answer": [1, 2, 3]
+},
+{
+  "question": "SAP clean core extensibility and ABAP cloud\nQuestion 58\nWhich of the following are personas under the SAP S/4HANA Cloud Extensibility Framework?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "Workflow Administrator",
+    "Citizen Developer",
+    "Report Writer",
+    "Business Expert"
+  ],
+  "answer": [1, 3]
+},
+{
+  "question": "SAP clean core extensibility and ABAP cloud\nQuestion 59\nWhich of the following custom code use cases falls under Tier 1 extensibility guidelines?",
+  "options": [
+    "Apply an SAP note with manual corrections, for example a DDIC object from SAP Basis.",
+    "Create a wrapper class around SAP objects that have not been released yet.",
+    "Create a custom field on a DB table or CDS view via a released extension include.",
+    "Implement a user or customer exits, for example SAPMV45A."
+  ],
+  "answer": [2]
+}
+,
+{
+  "question": "SAP clean core extensibility and ABAP cloud\nQuestion 60\nWhich of the following are rules that extensions in SAP S/4HANA Cloud, public edition must adhere to?\nNote: There are 3 correct answers to this question.",
+  "options": [
+    "Use tier 2 wrappers to enable access to non-released SAP APIs.",
+    "Use released remote or local SAP APIs.",
+    "Use cloud-enabled and released technologies.",
+    "Modify SAP objects in exceptional cases only.",
+    "Extend SAP objects through predefined extension points."
+  ],
+  "answer": [1, 2, 4]
+},
+{
+  "question": "SAP clean core extensibility and ABAP cloud\nQuestion 61\nWhat can you do in SAP S/4HANA Cloud, public edition?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "Use Web Dynpros",
+    "Use ABAP Development Tools in Eclipse (ADT)",
+    "Modify SAP objects",
+    "Use SAP-released extension points"
+  ],
+  "answer": [1, 3]
+},
+{
+  "question": "SAP clean core extensibility and ABAP cloud\nQuestion 62\nWhich of the following enforce ABAP Cloud rules?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "ABAP platform reuse services",
+    "ABAP compiler",
+    "ABAP runtime checks",
+    "ABAP release contracts"
+  ],
+  "answer": [1, 3]
+},
+{
+  "question": "SAP clean core extensibility and ABAP cloud\nQuestion 63\nWhich of the following models must you use to develop artifacts that expose ABAP-based backend services based on semantic data models?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "ABAP Programming Model for SAP Fiori",
+    "Cloud Application Programming Model",
+    "ABAP RESTful application programming model",
+    "ABAP Cloud Development Model"
+  ],
+  "answer": [0, 2]
+},
+{
+  "question": "ABAP SQL and code pushdown\nQuestion 64\nWhat are some features of ABAP SQL?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "It is integrated in the ABAP programming language.",
+    "It is first processed by the Database Interface.",
+    "It is only valid on the HANA database.",
+    "It is directly executed on the HANA database."
+  ],
+  "answer": [0, 1]
+},
+{
+  "question": "ABAP SQL and code pushdown\nQuestion 65\nWhich of the following rules apply for dividing with ABAP SQL?\nNote: There are 3 correct answers to this question.",
+  "options": [
+    "Numeric function division( nominator, denominator, decimal places) accepts floating point input.",
+    "The division operator \"/\" accepts decimal input.",
+    "The division operator \"/\" accepts floating point input.",
+    "Numeric function div( nominator, denominator) expects only integer input.",
+    "Numeric function division( nominator, denominator, decimal places) accepts decimal input."
+  ],
+  "answer": [2, 3, 4]
+},
+{
+  "question": "ABAP SQL and code pushdown\nQuestion 66\nWhich of the following ABAP SQL aggregate functions accept an ABAP SQL expression (e.g. f1 + f2) as input?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "max()",
+    "avg()",
+    "sum()",
+    "count(*)"
+  ],
+  "answer": [1, 2]
+},
+{
+  "question": "ABAP SQL and code pushdown\nQuestion 67\nIn a CDS view, where can a value help be defined?",
+  "options": [
+    "In the SQL console",
+    "In a view definition",
+    "In an annotation",
+    "In an association"
+  ],
+  "answer": [2]
+},
+{
+  "question": "ABAP SQL and code pushdown\nQuestion 68\nYou want to extract date information of a flight date (f_info) and format it like yyyy-dd-mm using the following code:\n\nFor the extract_* functions to work, what can be the data dictionary types of f_info?\nNote: There are 3 correct answers to this question.",
+  "options": [
+    "TIMESTAMP",
+    "TIMN",
+    "UTCLONG",
+    "DATS",
+    "TIMS"
+  ],
+  "answer": [0, 2, 3]
+},
+{
+  "question": "ABAP SQL and code pushdown\nQuestion 69\nWhen you join two database tables, which of the following rules applies to the database fields you use in the join?",
+  "options": [
+    "They must be compared with an ON condition.",
+    "They must have the same name, e.g. col1 = col1.",
+    "They must always have an alias name.",
+    "They must be the same position in their table, for example left_table-col1 = right_table-col1."
+  ],
+  "answer": [0]
+},
+{
+  "question": "ABAP SQL and code pushdown\nQuestion 70\nWhich of the following are valid ABAP SQL type conversions?\nNote: There are 3 correct answers to this question.",
+  "options": [
+    "CAST ('field_f1' as CHAR (8)) AS f_chars",
+    "CAST (29 as INT8) AS f_int8",
+    "CAST (field_f2 as N (8)) AS f_n8",
+    "CAST (34 as I) AS f_i34",
+    "CAST (field_f5 as DEC (15,2)) AS f_dec_15_2"
+  ],
+  "answer": [0, 1, 4]
+},
+{
+  "question": "ABAP SQL and code pushdown\nQuestion 71\nYou want to join two database tables, T_CARRIER and T_CONNECTIONS, to retrieve all carriers, whether they have corresponding connections or not.\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "SELECT FROM carrier LEFT OUTER JOIN t_connections ON ...",
+    "SELECT FROM carrier INNER JOIN t_connections ON ...",
+    "SELECT FROM connections RIGHT OUTER JOIN t_carrier ON ...",
+    "SELECT FROM carrier LEFT INNER JOIN t_connections ON ..."
+  ],
+  "answer": [0, 2]
+},
+{
+  "question": "ABAP RESTful Application Programming Model\nQuestion 72\nIn a RESTful Application Programming object, where is the validation implementation code contained?",
+  "options": [
+    "Function",
+    "Local class",
+    "Subroutine",
+    "Global class"
+  ],
+  "answer": [1]
+},
+{
+  "question": "ABAP RESTful Application Programming Model\nQuestion 73\nWhich language is used to add or change data of a business object in RESTful Application Programming?",
+  "options": [
+    "Entity manipulation language",
+    "RAP editing language",
+    "Data modification language",
+    "Data manipulation language"
+  ],
+  "answer": [0]
+},
+{
+  "question": "ABAP RESTful Application Programming Model\nQuestion 74\nIn what order are objects created to generate a RESTful Application Programming application?",
+  "options": [
+    "Service definition",
+    "Data model view",
+    "Projection view",
+    "Database table",
+    "Service binding"
+  ],
+  "answer": [3]
+},
+{
+  "question": "ABAP RESTful Application Programming Model\nQuestion 75\nWhich RESTful Application Programming object can be used to organize the display of fields in an app?",
+  "options": [
+    "Projection view",
+    "Metadata extension",
+    "Data model view",
+    "Service definition"
+  ],
+  "answer": [1]
+},
+{
+  "question": "ABAP RESTful Application Programming Model\nQuestion 76\nWhat RESTful Application Programming feature is used to ensure the uniqueness of a semantic key?",
+  "options": [
+    "Action",
+    "Determination",
+    "Validation"
+  ],
+  "answer": [2]
+},
+{
+  "question": "ABAP RESTful Application Programming Model\nQuestion 77\nWhat RESTful Application Programming object contains only the fields required for a particular app?",
+  "options": [
+    "Projection view",
+    "Database view",
+    "Data model view",
+    "Metadata extension"
+  ],
+  "answer": [3]
+},
+{
+  "question": "ABAP RESTful Application Programming Model\nQuestion 78\nIn RESTful Application Programming, a business object contains which parts?\nNote: There are 2 correct answers to this question.",
+  "options": [
+    "Authentication rules",
+    "Behaviour definition",
+    "Process definition",
+    "CDS view"
+  ],
+  "answer": [1, 3]
+},
+{
+  "question": "ABAP RESTful Application Programming Model\nQuestion 79\nAfter you created a database table in the RESTful Application Programming model, what do you create next?",
+  "options": [
+    "A data model view",
+    "A service definition",
+    "A metadata extension",
+    "A projection view"
+  ],
+  "answer": [0]
+},
+{
+  "question": "ABAP RESTful Application Programming Model\nQuestion 80\nSetting a field to read-only in which object would make the field read-only in all applications of the RESTful Application Programming model?",
+  "options": [
+    "Projection view",
+    "Behaviour definition",
+    "Service definition",
+    "Metadata extension"
+  ],
+  "answer": [1]
+}
+
+]

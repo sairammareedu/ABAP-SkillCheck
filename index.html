@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ABAP Online Certification Examination</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --bg:#eef1f5;--card:#fff;--text:#1a1a1a;
+  --primary:#2563eb;--answered:#4fc87b;
+  --review:#facc15;--unvisited:#e5e7eb;
+  --correct:#dcfce7;--wrong:#fee2e2;
+}
+.dark{--bg:#0f172a;--card:#1e293b;--text:#f8fafc}
+
+*{transition:.25s ease}
+
+body{
+  margin:0;font-family:Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--bg);color:var(--text);padding:20px;
+}
+
+header{
+  text-align:center;font-size:26px;font-weight:700;
+  margin-bottom:20px;
+}
+
+.container{
+  max-width:900px;background:var(--card);
+  padding:25px;border-radius:14px;
+}
+
+.top{
+  display:flex;justify-content:space-between;align-items:center;
+}
+
+.timer{font-size:50px;font-weight:600;color:var(--primary)}
+
+button{
+  padding:9px 16px;border:none;border-radius:8px;
+  background:var(--primary);color:#fff;cursor:pointer;
+}
+button.secondary{background:#64748b}
+
+.options label{
+  display:block;padding:12px;border:1px solid #ddd;
+  border-radius:8px;margin-bottom:10px;
+}
+
+/* 🔥 NEW: question block formatting */
+.question-block{
+  background:#cfd8df;
+  border:1px solid #e5e7eb;
+  padding:16px;
+  border-radius:10px;
+  font-family:Consolas,"Courier New",monospace;
+  white-space:pre-wrap;
+  margin-bottom:20px;
+}
+.dark .question-block{background:#020617}
+
+.palette{
+  position:fixed;
+  top:90px;
+  right:20px;
+  width:230px;
+  max-height:75vh;            /* 👈 prevents overflow */
+  overflow-y:auto;            /* 👈 scroll inside palette */
+  background:var(--card);
+  border-radius:14px;
+  padding:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  z-index:100;
+}
+
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(42px,1fr));
+  gap:8px;
+}
+.grid button{background:var(--unvisited);font-size:13px;color:#08363e}
+
+.answered{background:var(--answered)!important;color:#ffffff}
+.review{background:var(--review)!important}
+.current{border:2px solid var(--primary)}
+
+.result-card{
+  margin-top:25px;padding:20px;border-radius:12px;
+  background:linear-gradient(135deg,#e0f2fe,#f0f9ff);
+}
+
+.review-q{
+  margin-top:15px;padding:15px;border-radius:10px;
+  background:#f8fafc;
+}
+
+.correct-answer{background:var(--correct);padding:8px;border-radius:6px}
+.wrong-answer{background:var(--wrong);padding:8px;border-radius:6px}
+
+@media(max-width:900px){
+  .palette{
+    position:static;          /* 👈 moves above content */
+    width:100%;
+    max-height:none;
+    margin-bottom:15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>ABAP Online Certification Examination</header>
+
+<div class="palette">
+  <h4>Question Palette</h4>
+  <div class="grid" id="nav"></div>
+</div>
+
+<div class="container">
+
+  <div class="top">
+    <div class="timer">⏱ <span id="time">60:00</span></div>
+    <button onclick="toggleDark()">🌙</button>
+  </div>
+
+  <h3 id="qno"></h3>
+  <div id="questionBox"></div>
+
+  <div style="display:flex;gap:10px;margin-top:15px">
+    <button onclick="prevQ()">⬅ Prev</button>
+    <button onclick="nextQ()">Next ➡</button>
+    <button class="secondary" onclick="toggleReview()">⭐ Mark for Review</button>
+  </div>
+
+  <button id="submitBtn" style="width:100%;margin-top:20px" onclick="submitExam()">
+    Submit Exam
+  </button>
+
+  <div id="result"></div>
+  <div id="fullReview"></div>
+
+</div>
+
+<script>
+let questions=[],current=0,answers={},review={};
+let timeLeft=3600,timer,submitted=false;
+
+function shuffleArray(arr){
+  for(let i = arr.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+}
+
+
+fetch("questions.json")
+.then(r => r.json())
+.then(d => {
+
+  // 🔀 Shuffle questions
+  shuffleArray(d);
+
+  // 🔀 Shuffle options but preserve correct answers
+  d.forEach(q => {
+    const indexedOptions = q.options.map((opt, i) => ({
+      text: opt,
+      index: i
+    }));
+
+    shuffleArray(indexedOptions);
+
+    q.options = indexedOptions.map(o => o.text);
+    q.answer = indexedOptions
+      .map((o, i) => q.answer.includes(o.index) ? i : null)
+      .filter(i => i !== null);
+  });
+
+  questions = d;
+  render();
+  renderNav();
+  startTimer();
+});
+
+
+function render(){
+ if(submitted) return;
+ const q=questions[current];
+ document.getElementById("qno").innerText=
+  `Question ${current+1} of ${questions.length}`;
+
+ const type=q.answer.length>1?"checkbox":"radio";
+ let h=`<pre class="question-block">${q.question}</pre><div class="options">`;
+
+ q.options.forEach((o,i)=>{
+  const checked=answers[current]?.includes(i)?"checked":"";
+  h+=`<label>
+    <input type="${type}" name="q${current}" ${checked}
+    onchange="selectOption(${i})"> ${o}
+  </label>`;
+ });
+
+ h+="</div>";
+ document.getElementById("questionBox").innerHTML=h;
+ renderNav();
+}
+
+function selectOption(i){
+ if(!answers[current]) answers[current]=[];
+ if(questions[current].answer.length===1)
+   answers[current]=[i];
+ else{
+   answers[current].includes(i)
+    ? answers[current]=answers[current].filter(x=>x!==i)
+    : answers[current].push(i);
+ }
+ renderNav();
+}
+
+function toggleReview(){review[current]=!review[current];renderNav();}
+function nextQ(){if(current<questions.length-1){current++;render();}}
+function prevQ(){if(current>0){current--;render();}}
+function gotoQ(i){current=i;render();}
+
+function renderNav(){
+ let nav="";
+ questions.forEach((_,i)=>{
+  let cls=[];
+  if(review[i]) cls.push("review");
+  else if(answers[i]?.length) cls.push("answered");
+  if(i===current) cls.push("current");
+  nav+=`<button class="${cls.join(" ")}"
+        onclick="gotoQ(${i})">${i+1}</button>`;
+ });
+ document.getElementById("nav").innerHTML=nav;
+}
+
+function submitExam(){
+ submitted=true;clearInterval(timer);
+ document.getElementById("submitBtn").disabled=true;
+
+ let correct=0,attempted=0;
+ questions.forEach((q,i)=>{
+  const a=answers[i];
+  if(!a||!a.length) return;
+  attempted++;
+  if(a.length===q.answer.length && q.answer.every(x=>a.includes(x)))
+    correct++;
+ });
+
+ const total=questions.length;
+ const pass=Math.ceil(total*0.6);
+
+ document.getElementById("result").innerHTML=`
+  <div class="result-card">
+    <h3>${correct>=pass?"🏆 PASS":"❌ FAIL"}</h3>
+    Score: ${correct}/${total}<br>
+    Attempted: ${attempted}<br>
+    Unattempted: ${total-attempted}<br><br>
+    <button onclick="tryAgain()">🔁 Try Again</button>
+  </div>`;
+
+ showReview();
+}
+
+function showReview(){
+ let html="<h3>Answer Review</h3>";
+ questions.forEach((q,i)=>{
+  const a=answers[i]||[];
+  html+=`
+   <div class="review-q">
+    <b>Q${i+1}</b>
+    <pre class="question-block">${q.question}</pre>
+    <div class="correct-answer">
+      Correct: ${q.answer.map(x=>q.options[x]).join(", ")}
+    </div><br>
+    ${
+      a.length
+      ? `<div class="${a.every(x=>q.answer.includes(x)) &&
+           a.length===q.answer.length?'correct-answer':'wrong-answer'}">
+         Your Answer: ${a.map(x=>q.options[x]).join(", ")}
+        </div>`
+      : `<i>Not Attempted</i>`
+    }
+   </div>`;
+ });
+ document.getElementById("fullReview").innerHTML=html;
+}
+
+function tryAgain(){
+ answers={};review={};submitted=false;
+ current=0;timeLeft=3600;
+ document.getElementById("result").innerHTML="";
+ document.getElementById("fullReview").innerHTML="";
+ document.getElementById("submitBtn").disabled=false;
+ startTimer();render();renderNav();
+}
+
+function startTimer(){
+ clearInterval(timer);
+ timer=setInterval(()=>{
+  timeLeft--;
+  const m=Math.floor(timeLeft/60),s=timeLeft%60;
+  document.getElementById("time").innerText=
+   `${m}:${String(s).padStart(2,"0")}`;
+  if(timeLeft<=0) submitExam();
+ },1000);
+}
+
+function toggleDark(){document.body.classList.toggle("dark");}
+</script>
+
+</body>
+</html>
